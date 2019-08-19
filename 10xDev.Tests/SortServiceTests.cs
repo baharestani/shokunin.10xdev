@@ -13,22 +13,12 @@ namespace _10xDev.Tests
 
         public SortServiceTests()
         {
-            ISortingRule[] rules =
-            {
-                new NotTheBestRule("Jessie"),
-                new NotTheWorstRule("Evan"),
-                new NotTheBestRule("John"),
-                new NotTheWorstRule("John"),
-                new NotNextToRule("Matt", "John"),
-                new NotNextToRule("Evan", "John"),
-                new BetterRule("Sarah", "Evan"),
-            };
-            var sortService = new SortService(rules);
+            var sortService = new SortService(new RulesStore());
             _possibleResults = sortService.GetPossibleSorts(_names);
         }
 
         [Fact]
-        public void Sorted_devs_should_always_contain_all_of_them()
+        public void Sorted_names_should_always_contain_all_of_them()
         {
             _possibleResults.ShouldAllBe(p => p.Count() == _names.Length);
             _possibleResults.ShouldAllBe(p=> p.Contains("Jessie"));

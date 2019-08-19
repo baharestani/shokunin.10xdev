@@ -6,17 +6,18 @@ namespace _10xDev
 {
     public class SortService
     {
-        private readonly IEnumerable<ISortingRule> _sortingRules;
+        private readonly IRuleProver _ruleProver;
 
-        public SortService(IEnumerable<ISortingRule> sortingRules)
+        public SortService(IRuleProver ruleProver)
         {
-            _sortingRules = sortingRules;
+            _ruleProver = ruleProver;
         }
 
         public IEnumerable<IEnumerable<string>> GetPossibleSorts(string[] names)
         {
             var permutations = PermutationService.GenerateFor(names);
-            return permutations.Where(p => _sortingRules.All(r => r.Matches(p)));
+            var rules = _ruleProver.GetRules();
+            return permutations.Where(p => rules.All(r => r.Matches(p)));
         }
 
 

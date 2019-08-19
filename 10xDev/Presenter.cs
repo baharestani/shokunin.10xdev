@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -6,13 +7,13 @@ namespace _10xDev
 {
     public class Presenter
     {
-        public string Get10XDeveloper(string[][] results)
+        public string Get10XDeveloper(IEnumerable<string>[] results)
         {
             var result = EnsureSingleResult(results);
             return $"The 10X Developer is {result[0]}";
         }
 
-        public string GetLeaderBoard(string[][] results)
+        public string GetLeaderBoard(IEnumerable<string>[] results)
         {
             var result = EnsureSingleResult(results);
             var leaderBoardBuilder = new StringBuilder();
@@ -25,9 +26,11 @@ namespace _10xDev
             return leaderBoardBuilder.ToString();
         }
 
-        private static string[] EnsureSingleResult(string[][] results)
+        private static string[] EnsureSingleResult(IEnumerable<string>[] results)
         {
-            return results.Length == 1 ? results.Single().ToArray() : throw new InvalidOperationException("More than one possible ordering.");
+            return results.Length == 1 ?
+                results.Single().ToArray() :
+                throw new InvalidOperationException("More than one possible ordering.");
         }
     }
 }
