@@ -6,17 +6,17 @@ namespace _10xDev
 {
     public class SortService
     {
-        private readonly IRuleProver _ruleProver;
+        private readonly IRuleProvider _ruleProvider;
 
-        public SortService(IRuleProver ruleProver)
+        public SortService(IRuleProvider ruleProvider)
         {
-            _ruleProver = ruleProver;
+            _ruleProvider = ruleProvider;
         }
 
         public IEnumerable<IEnumerable<string>> GetPossibleSorts(string[] names)
         {
             var permutations = PermutationService.GenerateFor(names);
-            var rules = _ruleProver.GetRules();
+            var rules = _ruleProvider.GetRules();
             return permutations.Where(p => rules.All(r => r.Matches(p)));
         }
 

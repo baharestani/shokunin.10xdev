@@ -3,7 +3,7 @@ using _10xDev.Rules;
 
 namespace _10xDev
 {
-    public interface IRuleProver
+    public interface IRuleProvider
     {
         IEnumerable<ISortingRule> GetRules();
     }

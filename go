@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-if [ "$1" = "run" ]; then
+if [ $# = 0 ]; then
   dotnet build 10xDev -o bin
   dotnet 10xDev/bin/10xDev.dll
 fi
