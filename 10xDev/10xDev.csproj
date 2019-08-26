@@ -34,4 +34,10 @@
     <DeployManifest Remove="obj\Debug\netcoreapp2.2\10xDev.application" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="facts.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

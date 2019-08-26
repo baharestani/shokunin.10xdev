@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace _10xDev.Rules
 {
+    [Rule(@"\s*(.+) is not directly below or above (.+) as a developer")]
     public class NotNextToRule : ISortingRule
     {
         private readonly string _name1;

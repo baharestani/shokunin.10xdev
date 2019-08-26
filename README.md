@@ -23,12 +23,18 @@ You need to write a solution to compute these answers:
 
 ## Usage
 
-### Mac OS
+Define the facts as English sentences in `facts.txt` file.
+
+### Mac OS, Linux
 
 - Run the application: `./go`
 - Run the tests: `./go test`
 
 ### Other OS
-- Build the application: `dotnet build 10xDev -o bin`
-- Run the application: `dotnet 10xDev/bin/10xDev.dll`
+- Run the application: 
+```
+  dotnet build 10xDev -o bin
+  cd 10xDev/bin
+  dotnet 10xDev.dll
+```
 - Run the tests: `dotnet test`

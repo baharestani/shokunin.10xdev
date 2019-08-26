@@ -2,7 +2,8 @@
 
 if [ $# = 0 ]; then
   dotnet build 10xDev -o bin
-  dotnet 10xDev/bin/10xDev.dll
+  cd 10xDev/bin/
+  dotnet 10xDev.dll
 fi
 
 if [ "$1" = "test" ]; then

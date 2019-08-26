@@ -1,9 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace _10xDev.Rules
 {
+    [Rule(@"\s*(.+) is a better developer than (.+)")]
     public class BetterRule : ISortingRule
     {
         private readonly string _better;

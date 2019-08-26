@@ -13,7 +13,7 @@ namespace _10xDev.Tests
 
         public SortServiceTests()
         {
-            var sortService = new SortService(new RulesStore());
+            var sortService = new SortService(new RulesProvider(new TextFileFactsRepository("facts.txt")));
             _possibleResults = sortService.GetPossibleSorts(_names);
         }
 

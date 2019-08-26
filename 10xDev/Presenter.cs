@@ -30,7 +30,7 @@ namespace _10xDev
         {
             return results.Length == 1 ?
                 results.Single().ToArray() :
-                throw new InvalidOperationException("More than one possible ordering.");
+                throw new InvalidOperationException("More than one possible ordering! You many not have enough rules.");
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Linq;
 
 namespace _10xDev.Rules
 {
+    [Rule(@"\s*(.+) is not.*the best")]
     public class NotTheBestRule : ISortingRule
     {
         private readonly string _name;
