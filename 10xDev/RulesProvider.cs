@@ -18,10 +18,7 @@ namespace _10xDev
         public IEnumerable<ISortingRule> GetRules()
         {
             var facts = _factsRepository.GetFacts();
-
-            var ruleTypes = Assembly.GetCallingAssembly()
-                .GetExportedTypes()
-                .Where(t => Attribute.IsDefined(t, typeof(RuleAttribute)));
+            var ruleTypes = CollectAllRuleTypes();
 
             return ruleTypes.SelectMany(ruleType =>
                 Regex.Matches(facts, ruleType.GetCustomAttribute<RuleAttribute>().Pattern)
@@ -33,6 +30,13 @@ namespace _10xDev
             const int groupMatchingWhole = 1;
             var args = regexMatch.Groups.Skip(groupMatchingWhole).Select(g => (object) g.Value).ToArray();
             return (ISortingRule) Activator.CreateInstance(ruleType, args);
+        }
+        
+        private static IEnumerable<Type> CollectAllRuleTypes()
+        {
+            return Assembly.GetCallingAssembly()
+                .GetExportedTypes()
+                .Where(t => Attribute.IsDefined(t, typeof(RuleAttribute)));
         }
     }
 }
