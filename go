@@ -1,9 +1,7 @@
 #!/usr/bin/env sh
 
 if [ $# = 0 ]; then
-  dotnet build 10xDev -o bin
-  cd 10xDev/bin/
-  dotnet 10xDev.dll
+  dotnet run -p 10xDev
 fi
 
 if [ "$1" = "test" ]; then

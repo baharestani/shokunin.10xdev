@@ -31,10 +31,5 @@ Define the facts as English sentences in `facts.txt` file.
 - Run the tests: `./go test`
 
 ### Other OS
-- Run the application: 
-```
-  dotnet build 10xDev -o bin
-  cd 10xDev/bin
-  dotnet 10xDev.dll
-```
+- Run the application: `dotnet run -p 10xDev`
 - Run the tests: `dotnet test`
